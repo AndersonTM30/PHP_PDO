@@ -8,6 +8,8 @@ $pdo = new PDO('sqlsrv:Server=localhost,1433;Database=Teste', 'anderson', '1234'
 
 // Query para consultar os alunos
 $statement = $pdo->query('SELECT * FROM students;');
+// Mostra um dado específico
+var_dump($statement->fetchColumn(1)); exit();
 // Retorna a lista de alunos
 $studentDataList = $statement->fetchAll(PDO::FETCH_ASSOC);
 $studentList = [];
