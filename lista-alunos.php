@@ -4,7 +4,7 @@ use Alura\Pdo\Domain\Model\Student;
 
 require_once 'vendor/autoload.php';
 
-$pdo = new PDO('sqlsrv:Server=localhost,1433;Database=Teste', 'anderson', '1234');
+$pdo = Alura\Pdo\Infra\Persistence\ConnectionCreator::createConnection();
 
 // Query para consultar os alunos
 $statement = $pdo->query('SELECT * FROM students;');
