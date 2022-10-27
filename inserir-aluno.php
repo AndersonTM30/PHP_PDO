@@ -8,7 +8,7 @@ require_once 'vendor/autoload.php';
 // Cria uma nova conexão
 $pdo = Alura\Pdo\Infra\Persistence\ConnectionCreator::createConnection();
 // instancia um novo objeto de estudante para passar os valores
-$student = new Student("Alisson Sandes", new \DateTimeImmutable('1995-06-03'));
+$student = new Student(5, "Alisson Sandes", new \DateTimeImmutable('1995-06-03'));
 
 // query de inserção no banco de dados
 $sqlInsert = "INSERT INTO students (name, birth_date) VALUES (:name, :birth_date);";
