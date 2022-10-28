@@ -4,17 +4,16 @@ namespace Alura\Pdo\Infra\Repository;
 
 use Alura\Pdo\Domain\Model\Student;
 use Alura\Pdo\Domain\Repository\StudentRepository;
-use Alura\Pdo\Infra\Persistence\ConnectionCreator;
 use DateTimeInterface;
 use PDO;
 
 class PdoStudentRepository implements StudentRepository
 {
-    private \PDO $connection;
-
-    public function __construct()
+    private PDO $connection;
+    // Adicionando injeção de dependência para utilizar qualquer banco de dados
+    public function __construct(PDO $connection)
     {
-        $this->connection = ConnectionCreator::createConnection();
+        $this->connection = $connection;
     }
 
     public function allStudents(): array
