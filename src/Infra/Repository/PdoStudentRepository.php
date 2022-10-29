@@ -29,10 +29,6 @@ class PdoStudentRepository implements StudentRepository
     {
         $sqlQuery = 'SELECT * FROM students WHERE birth_date = ?;';
         $stmt = $this->connection->prepare($sqlQuery);
-        if($stmt === false) {
-            throw new \RuntimeException('Erro na query do banco');
-        }
-
         $stmt->bindValue(1, $birthDate->format('y-m-d'));
         $stmt->execute();
 

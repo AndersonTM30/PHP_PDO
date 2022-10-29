@@ -8,7 +8,10 @@ class ConnectionCreator
 {
     public static function createConnection(): PDO
     {
-        return new PDO('sqlsrv:Server=localhost,1433;Database=Teste', 'anderson', '1234');
+        $connection =  new PDO('sqlsrv:Server=localhost,1433;Database=Teste', 'anderson', '1234');
+        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);//verifica se tem erro na conexão
+
+        return $connection;
         
     }
 }
