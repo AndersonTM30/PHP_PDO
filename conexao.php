@@ -4,6 +4,9 @@ $pdo = new PDO('sqlsrv:Server=localhost,1433;Database=Teste', 'anderson', '1234'
 
 echo "Conectado";
 
+$pdo->exec("INSERT INTO phones(area_code, number, student_id) VALUES ('24', '988454666', 1)");
+exit();
+
 $createTableSql = '
     CREATE TABLE students 
         (
